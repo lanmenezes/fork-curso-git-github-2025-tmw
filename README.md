@@ -17,6 +17,8 @@ Confira tudo o que temos no nosso YouTube. É gratis!
 08. git checkout main
 09. git merge nova_branch
 
+teste alteração arquivo
+
 ## Fluxo de trabalho GitHub <> Local (projeto próprio ou da sua empresa)
 01. git clone <endereco do projeto>
 02. git checkout -b <nova_branch>
