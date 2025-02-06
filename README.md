@@ -19,7 +19,7 @@ alterando o arquivo na develop
 08. git checkout main
 09. git merge nova_branch
 
-teste alteração arquivo. teste do docs/readme
+teste alteração arquivo. teste do docs/readme. de novo
 
 ## Fluxo de trabalho GitHub <> Local (projeto próprio ou da sua empresa)
 01. git clone <endereco do projeto>
