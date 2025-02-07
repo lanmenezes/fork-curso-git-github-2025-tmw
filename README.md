@@ -6,6 +6,8 @@ Além disso, vamos trabalhar com GitFlow ao final do curso e Visual Studio Code.
 
 Confira tudo o que temos no nosso YouTube. É gratis!
 
+alterando o arquivo na develop
+
 ## Fluxo de trabalho Git local
 
 01. git checkout -b <nova-branch>
@@ -17,7 +19,7 @@ Confira tudo o que temos no nosso YouTube. É gratis!
 08. git checkout main
 09. git merge nova_branch
 
-teste alteração arquivo
+teste alteração arquivo. teste do docs/readme. de novo
 
 ## Fluxo de trabalho GitHub <> Local (projeto próprio ou da sua empresa)
 01. git clone <endereco do projeto>
