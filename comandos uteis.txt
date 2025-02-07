@@ -1,0 +1,164 @@
+Fluxo do trabalho:
+1. criar o diretório do projeto
+2. iniciar o git no diretório (git init)
+3. edita ou cria arquivos
+4. git status
+5. git add 
+6. git commit -m 'mensagem"
+7. git status
+
+
+
+ls - lista os arquivos 
+pwd -  caminho absoluto de onde estou
+cd /c/ = vai para o c
+cd útil - entra no diretório
+mkdir - cria diretório
+git init . - torna a pasta um repositório de git
+ls -a - mostra os ocultos incluindo a pasta git
+rm -rf .git remove a pasta .git
+q - sai
+git status -  mostra o status
+git add nome do arquivo - adiciona aquilo que eu quero que vá para o commit
+git status de novo sinaliza o que vai para o checkpoint
+git commit -m mensagem - comita
+git config --global user.email email
+git config --global user.name "Nome"
+git config --global user.name - mostra o nome configurado
+
+depois de feito o commit vai pra pasta .git
+
+git log - ver todos os checkpoints
+
+git add . - adiciona todos os arquivos modificados na pasta de uma vez
+
+git diff nome do arquivo - ele mostra o que foi modificado no arquivo
+git reset nome do arquivo - ele tira o arquivo do commit
+git checkout -b nome da branch - cria um branch nova e muda pra ela. fazer na main para clonar a main
+git branch - mostra todas as branchs do projeto e sinaliza a atual
+git checkout main - volta para branch main
+git checkout secundaria - volta para branch secundaria
+gir merge secundaria - mescla a secundaria na main 
+
+Exemplo de fluxo: git checkout secundaria - vai para secundária
+altera o arquivo
+git add. - adiciona a alteração no commit
+git commit -m "mensagem" - commita
+git checkout main - muda para main
+git merge secundaria - mescla a secundaria na main. a secundaria não é alterada.
+git branch -D secundaria - apaga a branch secundaria. tem que estar em outra branch pra fazer isso
+
+pra resolver conflitos ele vai mostrar as duas versões. editar o arquivo e deixar a versão correta depois  git add .
+
+
+GitHub 
+Em repositories clicar em new em owner escolher a organização e dar um nome e descrição para o repositório. escolher se é publico ou privado, adicionar ou não o readme.
+
+Em quick setup dá pra escolher https ou ssh. De início vamos fazer com https.
+Abaixo tem os comandos para criar um novo repositório local ou usar um já existente. Copiar e executar no git bash. executar um por um.
+
+git push -u origin main - pega as alterações que tem local na main e envia para o GitHub.
+
+git remote --help - mostra os comandos para remote git --help -> leva para help geral
+
+Fluxo:
+cria um novo repositório: git checkout -b 'descricao'
+altera o arquivo readme
+git add . - adiciona o arquivo
+git commit -m 'mensagem' - comita o arquivo
+git push origin descricao - mandando para o branch descrição
+
+olhando no git hub temos agora o branch main e os arquivos lá. Pra ver, na esquerda, clica em main e vai ter o banch descrição.
+
+pra fazer o merge, no site, clica em compare e pull request. depois de criado o pull request, clica em merge pull request e confirm
+
+Fork
+
+Fork cria uma cópia de um projeto no seu repositório remoto.
+Clica em fork, dá um nome para o repositório que será criado no seu usuário e create.
+
+Depois clica em code e copia a url do repositório.
+
+Pra trazer para o seu repositório local, vá para o git bash, entra em uma pasta onde vai ficar o projeto e dá o comando git clone com a url copiada.
+
+exemplo:
+
+git clone https://github.com/lanmenezes/fork-curso-git-github-2025-tmw.git
+
+depois entra na pasta e cria um branch: git checkout -b nomedobranch
+
+altera, git add . , git commit -m 'menssagem', git push origin nomedobranch, 
+faz a pull request
+
+Qdo fizer a pull request, vc tem a opção de fazer para o seu fork, mas por padrão vem o repositório base, que é de onde vc copiou o projeto.
+
+Qdo fizer a pull request para o diretório base, da outra pessoa, você não vai ter a opção de dar o merge pull request. Só o dono do projeto terá essa opção.
+
+Se vc quiser puxar as alterações feitas no repositório remoto da outra pessoa, no seu próprio repositório vai ter uma opção sync_fork. Clicando ali, vc traz as alterações do projeto original para o seu.
+
+se vc estiver na sua branch, desatualizada pode usar o comando?
+ git pull origin main
+, que ele vai fazer um pull e atualizar seu repositorio
+
+no vscode, abrindo a pasta do projeto, vc entra no branch em que está no momento. pode trocar o branch no canto inferior esquerdo.
+
+abrindo um terminal, ele abre o terminal em powershell. clicando ali dá pra trocar para git bash.
+
+git flow - não trabalha em cima da main, mas sim em cima de um branch develop. ver convention commit patterns para os nomes padrão. A idéia e não colocar coisas novas diretamente na main. Colocar na develop, juntar as alterações e comitar para a main depois de testado.
+
+no git bash tem que dar o comando git fetch para ele reconhecer todos os branchs que existem no repositório remoto. Lá vai ter no mínimo o main e o develop.
+
+Depois de fazer o git fetch, tem que dar o comando git checkout develop para entrar no branch develop. Veja que não é checkout -b. Não estamos criando, apenas entrando no repositório:
+
+git fetch
+git checkout develop
+
+Depois: git pull origin develop - pra garantir que nossa develop local esteja atualizada
+
+git checkout -b docs/readme - nome da branch deve refletir as alterações que serão feitas, baseado também na documentação da convenção de nomes padrão
+
+modifica os arquivos
+
+faz o pull request para develop
+
+depois pode deletar o branch local com o comando:
+
+git checkout develop - pois se estamos na docs/readme precisamos sair dela
+
+git checkout -D docs/readme
+
+
+Se tiver arquivos que você não quer que o git não faça o controle de versão, você deve criar um arquivo .gitignore e editá-lo colocando nele o nome dos arquivos que você não quer o controle de versão.
+
+Dá para usar coringas - se não quiser que todos os arquivos .pptx pode usar *.pptx
+
+Se você criar pastas para organização dos arquivos e essas pastas ainda estiverem vazias, o git não vai levar essas pastas. Mas se vc quer as pastas no projeto porque fazem parte da organização, você tem que criar um arquivo .gitkeep dentro da pasta.
+
+se a pasta tiver .gitkeep, o git vai levar para o controle de versão.
+
+Nesse caso se a pasta tiver arquivos ignorados pelo gitignore, esses arquivos não vão subir, mas se tiver o gitkeep a pasta vai vazia.
+
+Um exemplo de uso é criar uma pasta data com gitkeep e com dados csv, parquet, xls dentro, mas colocar as extensões no gitignore para que os dados não sejam versionados.
+
+no GitHub lanmenezes, criei um repositório com os comandos uteis e exemplos do git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
